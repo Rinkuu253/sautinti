@@ -1,0 +1,43 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root, [data-theme='light'] {
+    --si-bg: #f8fafc;
+    --si-surface: #ffffff;
+    --si-surface-2: #f1f5f9;
+    --si-surface-3: #e2e8f0;
+    --si-border: rgba(15, 23, 42, 0.10);
+    --si-border-2: rgba(15, 23, 42, 0.18);
+    --si-text: #0f172a;
+    --si-text-muted: #475569;
+    --si-text-dim: #94a3b8;
+    --si-shadow: 0 1px 3px rgba(0, 0, 0, 0.06), 0 1px 2px rgba(0, 0, 0, 0.04);
+    --si-shadow-md: 0 4px 12px rgba(0, 0, 0, 0.08);
+    --si-primary: #2B5C9E;
+    --si-primary-hov: #23508C;
+    --si-primary-glow: rgba(43, 92, 158, 0.18);
+    --si-success: #10b981;
+    --si-warning: #f59e0b;
+    --si-danger: #f43f5e;
+    --si-info: #0ea5e9;
+    --si-radius-sm: 0.375rem;
+    --si-radius: 0.5rem;
+    --si-radius-lg: 0.875rem;
+    --si-radius-xl: 1.25rem;
+    --si-font: 'Plus Jakarta Sans', system-ui, sans-serif;
+    --si-mono: 'JetBrains Mono', monospace;
+  }
+
+  body {
+    background-color: var(--si-bg);
+    color: var(--si-text);
+    font-family: var(--si-font);
+  }
+}
+
+*:focus-visible {
+  outline: 2px solid #2B5C9E;
+  outline-offset: 2px;
+}
