@@ -3,8 +3,6 @@ export default {
   content: [
     './index.html',
     './src/**/*.{js,ts,jsx,tsx}',
-    '../satuinti-ui/src/**/*.{js,ts,jsx,tsx}',
-    '../satuinti-ui/dist/**/*.{js,mjs,cjs}',
   ],
   theme: {
     extend: {
