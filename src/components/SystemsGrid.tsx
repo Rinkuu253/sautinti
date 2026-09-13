@@ -74,6 +74,19 @@ export const SystemsGrid: React.FC = () => {
               />
 
               <CardBody className="flex-1 space-y-4 p-5">
+                {project.imageUrl && (
+                  <div
+                    onClick={() => setSelectedProject(project)}
+                    className="cursor-pointer rounded-si overflow-hidden border border-si-border bg-white hover:border-[#2B5C9E] transition-all"
+                  >
+                    <img
+                      src={project.imageUrl}
+                      alt={project.name}
+                      className="w-full h-44 object-cover object-top hover:scale-[1.02] transition-transform duration-300"
+                    />
+                  </div>
+                )}
+
                 <p className="text-sm text-si-text leading-relaxed">
                   {project.summary}
                 </p>

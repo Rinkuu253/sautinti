@@ -49,6 +49,16 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
       }
     >
       <div className="space-y-6">
+        {project.imageUrl && (
+          <div className="rounded-si overflow-hidden border border-si-border bg-white shadow-xs">
+            <img
+              src={project.imageUrl}
+              alt={`${project.name} Architecture Diagram`}
+              className="w-full h-auto max-h-80 object-contain mx-auto"
+            />
+          </div>
+        )}
+
         <div className="flex flex-wrap items-center justify-between gap-2 p-3 bg-si-surface-2 rounded-si border border-si-border">
           <div className="flex items-center gap-2">
             <span className="text-xs font-mono text-si-text-dim">Role:</span>

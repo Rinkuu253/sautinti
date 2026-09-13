@@ -9,6 +9,7 @@ export interface SystemProject {
   architectureDetails: string[];
   techStack: string[];
   status: 'Production' | 'Active Deployment' | 'Internal Lab';
+  imageUrl?: string;
   metrics?: { label: string; value: string }[];
 }
 
@@ -29,6 +30,7 @@ export const projects: SystemProject[] = [
     ],
     techStack: ['AWS ECS', 'EC2', 'ALB', 'RDS PostgreSQL', 'S3', 'IAM', 'CloudFront', 'CloudWatch'],
     status: 'Production',
+    imageUrl: '/images/aws-topology.jpg',
     metrics: [
       { label: 'Cost Reduction', value: '38% to 46% savings' },
       { label: 'Monthly Run Rate', value: 'USD 390 down to USD 210-240' }
@@ -50,6 +52,7 @@ export const projects: SystemProject[] = [
     ],
     techStack: ['n8n Self-Hosted', 'TypeScript', 'Microsoft Teams Adaptive Cards', 'Wablas API', 'Qiscus SDK', 'PostgreSQL'],
     status: 'Production',
+    imageUrl: '/images/n8n-workflow.jpg',
     metrics: [
       { label: 'Human-in-the-Loop', value: 'Zero unapproved AI sends' },
       { label: 'Supported Channels', value: 'WhatsApp + Omnichannel' }
@@ -113,6 +116,7 @@ export const projects: SystemProject[] = [
     ],
     techStack: ['React 18', 'TypeScript', 'Tailwind CSS', 'Vite', 'PostCSS'],
     status: 'Production',
+    imageUrl: '/images/satuinti-ui-showcase.jpg',
     metrics: [
       { label: 'Design Tokens', value: '7 Subsystems' },
       { label: 'Accessibility', value: 'WCAG AA Compliant' }
