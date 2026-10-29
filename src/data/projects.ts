@@ -106,11 +106,11 @@ export const projects: SystemProject[] = [
     role: 'Cloud Infrastructure Engineer',
     category: 'Cloud & Ops',
     tier: 'featured',
-    outcome: 'Monthly AWS bill cut from ~$390 to $210–240 (38–46%) while keeping production highly available, with zero-downtime rollouts.',
+    outcome: 'Monthly AWS bill cut by up to 30% while keeping production highly available, with zero-downtime rollouts.',
     summary:
       'Audit and restructuring of a production AWS environment across compute, database, networking, and storage.',
     problem:
-      'Costs had crept up to ~$390/month through oversized containers and databases, idle capacity, and storage nobody was cleaning up.',
+      'Costs had crept up month after month through oversized containers and databases, idle capacity, and storage nobody was cleaning up.',
     solution:
       'Measured real usage in CloudWatch, right-sized ECS tasks and RDS instances, tidied up load balancer routing, and automated cleanup of old snapshots and storage.',
     challenge:
@@ -126,8 +126,7 @@ export const projects: SystemProject[] = [
     status: 'Production',
     imageUrl: '/images/aws-topology.jpg',
     metrics: [
-      { label: 'Cost reduction', value: '38–46%' },
-      { label: 'Monthly run rate', value: '$390 → $210–240' },
+      { label: 'Cost reduction', value: 'Up to 30%' },
       { label: 'Availability', value: 'Health-checked, zero-downtime rollouts' },
     ],
   },
@@ -199,53 +198,6 @@ export const projects: SystemProject[] = [
     ],
     techStack: ['NestJS', 'TypeScript', 'Prisma', 'PostgreSQL', 'Microsoft Graph', 'Azure AD'],
     status: 'Production',
-  },
-  {
-    id: 'anthos-helpdesk',
-    name: 'WhatsApp AI Helpdesk',
-    role: 'Automation & Integration Engineer',
-    category: 'Integrations & Automation',
-    tier: 'more',
-    outcome: 'AI drafts the reply, a human approves it in Teams, and the customer gets it on WhatsApp.',
-    summary:
-      'A multi-tenant support pipeline connecting WhatsApp and webchat to Microsoft Teams, with AI-drafted replies and a human approval step.',
-    problem:
-      'Support messages from WhatsApp and webchat were answered manually without context, and agents were unsure who owned which ticket.',
-    solution:
-      'An n8n pipeline that normalizes incoming messages, deduplicates sessions, drafts a reply with AI, and posts it to Teams for an agent to approve before it is sent.',
-    challenge:
-      'Webhook providers retry aggressively. An idempotency check in PostgreSQL makes sure a retry storm never produces duplicate tickets or replies.',
-    architectureDetails: [
-      'Channel adapters for WhatsApp (Wablas) and Qiscus feeding one unified message schema.',
-      'Idempotent session handling in PostgreSQL.',
-      'AI draft plus a mandatory human approval gate in Teams Adaptive Cards.',
-      'Replies routed back through the original channel.',
-    ],
-    techStack: ['n8n', 'TypeScript', 'PostgreSQL', 'Teams Adaptive Cards', 'Wablas API', 'Qiscus'],
-    status: 'Production',
-    imageUrl: '/images/n8n-workflow.jpg',
-    metrics: [{ label: 'Unapproved AI replies', value: 'Zero' }],
-  },
-  {
-    id: 'asset-audit',
-    name: 'Asset Audit Scanner',
-    role: 'Integration Engineer',
-    category: 'Integrations & Automation',
-    tier: 'more',
-    outcome: 'Equipment audits went from clipboards and spreadsheets to scanning a QR code straight into SharePoint.',
-    summary:
-      'A browser-based QR scanner that updates SharePoint inventory lists in real time through Microsoft Graph.',
-    problem:
-      'Hardware audits were logged on paper and retyped into enterprise systems, taking days and introducing errors.',
-    solution:
-      'A web scanner with Azure AD sign-in that validates each scan and writes it directly to SharePoint.',
-    architectureDetails: [
-      'MSAL.js sign-in with silent token refresh against the company Azure AD tenant.',
-      'Direct Microsoft Graph calls instead of spreadsheet imports.',
-      'Schema validation so malformed serial numbers never reach the list.',
-    ],
-    techStack: ['React', 'TypeScript', 'MSAL.js', 'Microsoft Graph', 'SharePoint Online'],
-    status: 'In daily use',
   },
   {
     id: 'mobile-expo',

@@ -34,17 +34,17 @@ export const services: Service[] = [
     title: 'Integrations & automation',
     pitch: 'Connect the tools you already pay for so data stops being copied by hand.',
     goodFitIf: [
-      'You use Microsoft 365, WhatsApp, or a SaaS with an API',
+      'You use Microsoft 365 or a SaaS tool with an API',
       'Someone on your team spends hours moving data between systems',
     ],
     youGet: [
       'Microsoft Graph, SharePoint, and Outlook calendar integrations',
-      'WhatsApp and helpdesk pipelines, with AI and human review where it helps',
+      'Workflow automation with n8n and webhooks, with a human review step where it matters',
       'Single sign-on across your internal apps',
     ],
     timeline: '1–4 weeks',
     price: '',
-    relatedProjectIds: ['scheduling-365', 'anthos-helpdesk', 'asset-audit'],
+    relatedProjectIds: ['scheduling-365'],
   },
   {
     id: 'custom-apps',

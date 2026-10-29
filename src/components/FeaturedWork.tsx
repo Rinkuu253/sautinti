@@ -18,7 +18,7 @@ export const FeaturedWork: React.FC<FeaturedWorkProps> = ({ onOpen }) => {
         <SectionHeading
           eyebrow="Selected work"
           title="Things I built that people use every day"
-          description="Three projects that show the range: a multi-app product with real users, software that talks to medical hardware, and a production cloud bill cut almost in half."
+          description="Three projects that show the range: a multi-app product with real users, software that talks to medical hardware, and a production cloud bill cut by up to 30% without losing availability."
         />
 
         {featured.map((project, idx) => (

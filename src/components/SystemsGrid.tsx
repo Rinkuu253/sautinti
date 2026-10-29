@@ -3,7 +3,6 @@ import { Card, CardBody, CardFooter, Badge, Tabs } from '@satuinti/ui';
 import { ArrowUpRight, CheckCircle2 } from 'lucide-react';
 import { projects, ProjectCategory, SystemProject } from '../data/projects';
 import { SectionHeading } from './SectionHeading';
-import { ProjectVisual } from './ProjectVisual';
 
 const categories: ProjectCategory[] = ['Apps', 'Integrations & Automation', 'Cloud & Ops'];
 
@@ -44,7 +43,7 @@ export const SystemsGrid: React.FC<SystemsGridProps> = ({ onOpen }) => {
           </div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {filteredProjects.map((project) => (
             <Card
               key={project.id}
@@ -56,7 +55,6 @@ export const SystemsGrid: React.FC<SystemsGridProps> = ({ onOpen }) => {
               className="flex flex-col cursor-pointer border-si-border hover:border-[#2B5C9E]/50 bg-si-surface transition-all"
             >
               <CardBody className="flex-1 space-y-3 p-5">
-                {project.imageUrl && <ProjectVisual project={project} size="compact" />}
                 <Badge variant={categoryBadge[project.category]} className="text-[11px]">
                   {project.category}
                 </Badge>

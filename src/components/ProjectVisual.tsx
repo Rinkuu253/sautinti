@@ -4,13 +4,11 @@ import { SystemProject } from '../data/projects';
 
 interface ProjectVisualProps {
   project: SystemProject;
-  /** compact = card thumbnail, full = featured row / modal */
-  size?: 'compact' | 'full';
 }
 
 /** Screenshot in a browser frame, or a drawn system sketch when no screenshot exists yet. */
-export const ProjectVisual: React.FC<ProjectVisualProps> = ({ project, size = 'full' }) => {
-  const imageHeight = size === 'compact' ? 'h-40' : 'h-64 sm:h-80';
+export const ProjectVisual: React.FC<ProjectVisualProps> = ({ project }) => {
+  const imageHeight = 'h-64 sm:h-80';
 
   return (
     <div className="rounded-si-lg overflow-hidden border border-si-border-2 bg-si-surface shadow-sm">
