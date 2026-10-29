@@ -2,13 +2,16 @@
 
 ## 1. Identity & Purpose
 - **Brand:** Satu Inti (Matthew Marvelino / Anthos)
-- **Role:** IT Infrastructure & Cloud Engineer (Automation & System Integration)
-- **Motto:** Turning ideas into working systems.
-- **Mission:** I build infrastructure, applications, and automations that solve everyday problems.
+- **Role:** Freelance Systems & Full-Stack Engineer (Cloud, Integrations, Apps)
+- **Audience:** International clients (Upwork, agencies, small teams). English only.
+- **Positioning:** I build and run the systems small teams depend on.
+- **Differentiator:** IT operations day job (SOPs, AWS, support), so every project ends with documentation and a real handover.
 
 ## 2. Personality & Mood
 - **Aesthetic:** Minimalist Technical, Architectural, High-Precision.
 - **Tone:** Honest, concrete, verified. No marketing buzzwords, no fake numbers or testimonials.
+- **Copy rule:** Lead with the outcome for the client in plain English; stack and jargon go in chips and the case study modal.
+- **Visual rule:** Mono font only for numbers, code, and stack chips. Prefer real screenshots; draw a system sketch when none exist.
 
 ## 3. Palette (Derived from Satu Inti Logo & satuinti-ui)
 - **Primary Brand (Slate Blue):** `#2B5C9E` (Active hover: `#23508C`)

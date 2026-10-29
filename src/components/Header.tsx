@@ -1,7 +1,15 @@
 import React, { useState } from 'react';
 import { Badge, Button } from '@satuinti/ui';
-import { Menu, X, ExternalLink, Linkedin } from 'lucide-react';
+import { Menu, X, ArrowRight } from 'lucide-react';
 import { profile } from '../data/profile';
+
+export const navItems = [
+  { href: '#work', label: 'Work' },
+  { href: '#services', label: 'Services' },
+  { href: '#process', label: 'Process' },
+  { href: '#about', label: 'About' },
+  { href: '#contact', label: 'Contact' },
+];
 
 export const Header: React.FC = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -20,57 +28,34 @@ export const Header: React.FC = () => {
               <span className="font-bold text-base tracking-tight text-[#2B5C9E]">SATU</span>
               <span className="font-bold text-base tracking-tight text-[#6C3483]">INTI</span>
             </div>
-            <span className="text-[11px] font-mono text-si-text-muted leading-none">
-              {profile.name}
-            </span>
+            <span className="text-[11px] text-si-text-muted leading-none">{profile.name}</span>
           </div>
         </a>
 
         <nav className="hidden md:flex items-center gap-1">
-          <a
-            href="#systems"
-            className="px-3 py-1.5 text-sm font-medium text-si-text-muted hover:text-si-text hover:bg-si-surface-2 rounded-si transition-colors"
-          >
-            Case Studies
-          </a>
-          <a
-            href="#capabilities"
-            className="px-3 py-1.5 text-sm font-medium text-si-text-muted hover:text-si-text hover:bg-si-surface-2 rounded-si transition-colors"
-          >
-            Capabilities & Topology
-          </a>
-          <a
-            href="#roadmap"
-            className="px-3 py-1.5 text-sm font-medium text-si-text-muted hover:text-si-text hover:bg-si-surface-2 rounded-si transition-colors"
-          >
-            Roadmap
-          </a>
-          <a
-            href="#contact"
-            className="px-3 py-1.5 text-sm font-medium text-si-text-muted hover:text-si-text hover:bg-si-surface-2 rounded-si transition-colors"
-          >
-            Contact
-          </a>
+          {navItems.map((item) => (
+            <a
+              key={item.href}
+              href={item.href}
+              className="px-3 py-1.5 text-sm font-medium text-si-text-muted hover:text-si-text hover:bg-si-surface-2 rounded-si transition-colors"
+            >
+              {item.label}
+            </a>
+          ))}
         </nav>
 
         <div className="hidden lg:flex items-center gap-3">
           <Badge variant="success" dot={true} className="py-1 px-3">
-            Open for Cloud & Automation Roles
+            Available · {profile.timezone}
           </Badge>
-          <a
-            href={profile.links.linkedin}
-            target="_blank"
-            rel="noreferrer"
-            className="inline-flex"
-          >
+          <a href="#contact" className="inline-flex">
             <Button
-              variant="outline"
+              variant="primary"
               size="sm"
-              icon={<Linkedin className="w-3.5 h-3.5 text-[#2B5C9E]" />}
-              iconRight={<ExternalLink className="w-3 h-3 text-si-text-dim" />}
-              className="border-si-border-2 hover:border-[#2B5C9E] hover:text-[#2B5C9E]"
+              className="bg-[#2B5C9E] hover:bg-[#23508C] border-transparent"
+              iconRight={<ArrowRight className="w-3.5 h-3.5" />}
             >
-              LinkedIn
+              Start a project
             </Button>
           </a>
         </div>
@@ -89,45 +74,26 @@ export const Header: React.FC = () => {
 
       {mobileMenuOpen && (
         <div className="md:hidden border-b border-si-border bg-si-surface px-4 py-4 space-y-2">
-          <a
-            href="#systems"
-            onClick={() => setMobileMenuOpen(false)}
-            className="block px-3 py-2 text-sm font-medium text-si-text hover:bg-si-surface-2 rounded-si"
-          >
-            Case Studies
-          </a>
-          <a
-            href="#capabilities"
-            onClick={() => setMobileMenuOpen(false)}
-            className="block px-3 py-2 text-sm font-medium text-si-text hover:bg-si-surface-2 rounded-si"
-          >
-            Capabilities & Topology
-          </a>
-          <a
-            href="#roadmap"
-            onClick={() => setMobileMenuOpen(false)}
-            className="block px-3 py-2 text-sm font-medium text-si-text hover:bg-si-surface-2 rounded-si"
-          >
-            Roadmap
-          </a>
-          <a
-            href="#contact"
-            onClick={() => setMobileMenuOpen(false)}
-            className="block px-3 py-2 text-sm font-medium text-si-text hover:bg-si-surface-2 rounded-si"
-          >
-            Contact
-          </a>
+          {navItems.map((item) => (
+            <a
+              key={item.href}
+              href={item.href}
+              onClick={() => setMobileMenuOpen(false)}
+              className="block px-3 py-2 text-sm font-medium text-si-text hover:bg-si-surface-2 rounded-si"
+            >
+              {item.label}
+            </a>
+          ))}
           <div className="pt-2 border-t border-si-border flex items-center justify-between">
             <Badge variant="success" dot={true}>
-              Open for Cloud & Automation
+              Available · {profile.timezone}
             </Badge>
             <a
-              href={profile.links.linkedin}
-              target="_blank"
-              rel="noreferrer"
-              className="text-xs font-mono text-[#2B5C9E] underline flex items-center gap-1"
+              href="#contact"
+              onClick={() => setMobileMenuOpen(false)}
+              className="text-sm font-semibold text-[#2B5C9E] flex items-center gap-1"
             >
-              LinkedIn Profile <ExternalLink className="w-3 h-3" />
+              Start a project <ArrowRight className="w-3.5 h-3.5" />
             </a>
           </div>
         </div>
