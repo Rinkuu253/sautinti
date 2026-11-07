@@ -22,7 +22,7 @@ export const ProjectVisual: React.FC<ProjectVisualProps> = ({ project, large }) 
           className={`w-full ${height} object-cover object-top bg-white`}
         />
       ) : project.sketch ? (
-        <div className={`${height} flex items-center bg-si-surface-2 p-4 sm:p-6`}>
+        <div className={`${large ? height : ''} flex items-center bg-si-surface-2 p-4 sm:p-6`}>
           <div className="w-full grid grid-cols-[minmax(0,1fr)_auto_minmax(0,1fr)_auto_minmax(0,1fr)] items-center gap-1.5 sm:gap-2">
             {project.sketch.map((layer, idx) => (
               <React.Fragment key={layer.label}>

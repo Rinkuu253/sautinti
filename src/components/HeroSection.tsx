@@ -5,7 +5,7 @@ import { profile } from '../data/profile';
 export const HeroSection: React.FC = () => {
   return (
     <section className="relative bg-[#0b0f17] text-white overflow-hidden">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 pb-14 md:pt-24 md:pb-16">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-10 pb-10 md:pt-14 md:pb-12 xl:pt-24 xl:pb-16">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-14 items-center">
           <div className="lg:col-span-6 space-y-7">
             <div className="inline-flex items-center gap-2 text-xs font-medium text-white/70">
@@ -48,24 +48,24 @@ export const HeroSection: React.FC = () => {
             </div>
           </div>
 
-          <div className="lg:col-span-6">
+          <div className="hidden lg:block lg:col-span-6">
             <div className="rounded-si-lg overflow-hidden border border-white/15 shadow-[0_30px_80px_-30px_rgba(0,0,0,0.8)]">
               <img
                 src="/images/aposis.png"
                 alt="APOSIS sign-in screen with Google and Microsoft single sign-on"
-                className="w-full h-72 sm:h-96 object-cover object-top bg-white"
+                className="w-full h-64 lg:h-72 xl:h-96 object-cover object-top bg-white"
               />
             </div>
           </div>
         </div>
 
-        <dl className="grid grid-cols-2 lg:grid-cols-4 gap-x-6 gap-y-8 mt-14 pt-8 border-t border-white/15">
+        <dl className="grid grid-cols-2 lg:grid-cols-4 gap-x-6 gap-y-6 mt-10 pt-6 xl:mt-14 xl:pt-8 border-t border-white/15">
           {profile.proof.map((item) => (
             <div key={item.label} className="space-y-1">
               <dt className="sr-only">{item.label}</dt>
               <dd className="text-2xl sm:text-3xl font-mono font-semibold text-white tracking-tight">{item.value}</dd>
               <p className="text-sm font-semibold text-white/90">{item.label}</p>
-              <p className="text-xs text-white/60 leading-snug">{item.note}</p>
+              <p className="hidden sm:block text-xs text-white/60 leading-snug">{item.note}</p>
             </div>
           ))}
         </dl>
