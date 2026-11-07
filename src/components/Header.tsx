@@ -4,11 +4,11 @@ import { Menu, X, ArrowRight } from 'lucide-react';
 import { profile } from '../data/profile';
 
 export const navItems = [
-  { href: '#work', label: 'Work' },
-  { href: '#services', label: 'Services' },
-  { href: '#process', label: 'Process' },
-  { href: '#about', label: 'About' },
-  { href: '#contact', label: 'Contact' },
+  { href: '/#work', label: 'Work' },
+  { href: '/#services', label: 'Services' },
+  { href: '/#process', label: 'Process' },
+  { href: '/#about', label: 'About' },
+  { href: '/#contact', label: 'Contact' },
 ];
 
 export const Header: React.FC = () => {
@@ -17,7 +17,7 @@ export const Header: React.FC = () => {
   return (
     <header className="sticky top-0 z-40 w-full bg-si-surface/95 backdrop-blur-md border-b border-si-border">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
-        <a href="#" className="flex items-center gap-3 group focus:outline-none">
+        <a href="/" className="flex items-center gap-3 group focus:outline-none">
           <img
             src="/logo.png"
             alt="Satu Inti Logo"
@@ -48,7 +48,7 @@ export const Header: React.FC = () => {
           <Badge variant="success" dot={true} className="py-1 px-3">
             Available · {profile.timezone}
           </Badge>
-          <a href="#contact" className="inline-flex">
+          <a href="/#contact" className="inline-flex">
             <Button
               variant="primary"
               size="sm"
@@ -89,7 +89,7 @@ export const Header: React.FC = () => {
               Available · {profile.timezone}
             </Badge>
             <a
-              href="#contact"
+              href="/#contact"
               onClick={() => setMobileMenuOpen(false)}
               className="text-sm font-semibold text-[#2B5C9E] flex items-center gap-1"
             >
