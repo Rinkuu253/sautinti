@@ -12,7 +12,7 @@ export const Footer: React.FC = () => {
             <div>
               <div className="flex items-center gap-1 font-bold text-si-text">
                 <span className="text-[#2B5C9E]">SATU</span>
-                <span className="text-[#6C3483]">INTI</span>
+                <span className="text-si-text">INTI</span>
                 <span className="text-si-text-muted font-normal text-xs ml-1">/ {profile.title}</span>
               </div>
               <p className="text-[11px] text-si-text-dim">

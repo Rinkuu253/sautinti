@@ -12,6 +12,7 @@ export default {
           surface: 'var(--si-surface)',
           'surface-2': 'var(--si-surface-2)',
           'surface-3': 'var(--si-surface-3)',
+          ink: 'var(--si-ink)',
           border: 'var(--si-border)',
           'border-2': 'var(--si-border-2)',
           text: 'var(--si-text)',

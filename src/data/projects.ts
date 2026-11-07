@@ -56,6 +56,7 @@ export const projects: SystemProject[] = [
     ],
     techStack: ['React', 'TypeScript', 'Tailwind CSS', 'Zustand', 'TanStack Query', 'Vite', 'Azure AD', 'Firebase Auth'],
     status: 'Production',
+    imageUrl: '/images/aposis-test.png',
     sketch: [
       { label: 'Users', items: ['Students', 'Admins', 'Campus leadership'] },
       { label: 'Apps', items: ['Exam app', 'Authoring CMS', 'University dashboard'] },
@@ -90,6 +91,7 @@ export const projects: SystemProject[] = [
     ],
     techStack: ['Go', 'Tauri v2', 'Rust', 'Electron', 'React', 'TypeScript', 'RS-232', 'ASTM', 'HL7'],
     status: 'In daily use',
+    imageUrl: '/images/amarylis-lab.png',
     sketch: [
       { label: 'Hardware', items: ['Analyzer (RS-232)', 'Analyzer (TCP/IP)', 'Barcode printer'] },
       { label: 'Listener', items: ['Go daemon', 'ASTM / HL7 parser', 'Checksum check'] },

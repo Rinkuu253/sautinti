@@ -1,89 +1,55 @@
-import React, { useState } from 'react';
-import { Card, CardBody, CardFooter, Badge, Tabs } from '@satuinti/ui';
-import { ArrowUpRight, CheckCircle2 } from 'lucide-react';
-import { projects, ProjectCategory, SystemProject } from '../data/projects';
+import React from 'react';
+import { ArrowUpRight } from 'lucide-react';
+import { projects, SystemProject } from '../data/projects';
 import { SectionHeading } from './SectionHeading';
-
-const categories: ProjectCategory[] = ['Apps', 'Integrations & Automation', 'Cloud & Ops'];
-
-const categoryBadge: Record<ProjectCategory, 'primary' | 'warning' | 'info'> = {
-  'Cloud & Ops': 'primary',
-  'Integrations & Automation': 'warning',
-  Apps: 'info',
-};
 
 interface SystemsGridProps {
   onOpen: (project: SystemProject) => void;
 }
 
 export const SystemsGrid: React.FC<SystemsGridProps> = ({ onOpen }) => {
-  const [activeCategory, setActiveCategory] = useState<string>('all');
-
   const moreWork = projects.filter((p) => p.tier === 'more');
-  const filterTabs = [
-    { id: 'all', label: `All (${moreWork.length})` },
-    ...categories
-      .map((c) => ({ id: c, label: `${c} (${moreWork.filter((p) => p.category === c).length})` }))
-      .filter((tab) => !tab.label.endsWith('(0)')),
-  ];
-
-  const filteredProjects = activeCategory === 'all' ? moreWork : moreWork.filter((p) => p.category === activeCategory);
 
   return (
-    <section id="more-work" className="py-16 border-b border-si-border bg-[#f8fafc]">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-4">
-          <SectionHeading
-            eyebrow="More work"
-            title="Integrations, tools, and apps"
-            description="Smaller, focused systems. Click any card for the problem, approach, and stack."
-          />
-          <div className="shrink-0 max-w-full overflow-x-auto">
-            <Tabs tabs={filterTabs} active={activeCategory} onChange={(id) => setActiveCategory(id)} variant="pill" />
-          </div>
-        </div>
+    <section id="more-work" className="py-20 md:py-28 bg-si-surface border-y border-si-border">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
+        <SectionHeading
+          eyebrow="More work"
+          title="Integrations, tools, and apps"
+          description="Smaller, focused systems. Open any row for the problem, approach, and stack."
+        />
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {filteredProjects.map((project) => (
-            <Card
-              key={project.id}
-              hoverable={true}
-              onClick={() => onOpen(project)}
-              onKeyDown={(e) => (e.key === 'Enter' || e.key === ' ') && onOpen(project)}
-              role="button"
-              tabIndex={0}
-              className="flex flex-col cursor-pointer border-si-border hover:border-[#2B5C9E]/50 bg-si-surface transition-all"
-            >
-              <CardBody className="flex-1 space-y-3 p-5">
-                <Badge variant={categoryBadge[project.category]} className="text-[11px]">
-                  {project.category}
-                </Badge>
-                <h3 className="font-bold text-base text-si-text">{project.name}</h3>
-                <p className="text-sm text-si-text-muted leading-relaxed">{project.outcome}</p>
-                <div className="flex flex-wrap gap-1.5 pt-1">
-                  {project.techStack.slice(0, 5).map((tech) => (
-                    <span
-                      key={tech}
-                      className="px-2 py-0.5 text-[11px] font-mono rounded bg-si-surface-2 text-si-text-muted border border-si-border"
-                    >
-                      {tech}
-                    </span>
-                  ))}
+        <ul className="border-t border-si-border-2">
+          {moreWork.map((project) => (
+            <li key={project.id} className="border-b border-si-border">
+              <button
+                type="button"
+                onClick={() => onOpen(project)}
+                className="group w-full text-left grid grid-cols-1 md:grid-cols-12 gap-x-8 gap-y-2 py-6 items-start hover:bg-si-bg/70 transition-colors px-1 -mx-1"
+              >
+                <div className="md:col-span-4 space-y-1">
+                  <h3 className="text-lg font-bold text-si-text group-hover:text-[#2B5C9E] transition-colors">
+                    {project.name}
+                  </h3>
+                  <span className="text-xs text-si-text-dim">
+                    {project.category} · {project.status}
+                  </span>
                 </div>
-              </CardBody>
-
-              <CardFooter className="flex items-center justify-between p-3.5 bg-si-surface-2/60 border-t border-si-border">
-                <span className="text-xs font-semibold text-[#2B5C9E] flex items-center gap-1">
-                  Case study <ArrowUpRight className="w-3.5 h-3.5" />
-                </span>
-                <span className="text-[11px] text-si-text-dim flex items-center gap-1.5">
-                  <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600" />
-                  {project.status}
-                </span>
-              </CardFooter>
-            </Card>
+                <p className="md:col-span-5 text-sm text-si-text-muted leading-relaxed">{project.outcome}</p>
+                <div className="md:col-span-3 flex items-start justify-between gap-3">
+                  <div className="flex flex-wrap gap-1">
+                    {project.techStack.slice(0, 3).map((tech) => (
+                      <span key={tech} className="px-1.5 py-0.5 text-[11px] font-mono rounded bg-si-surface-2 text-si-text-muted">
+                        {tech}
+                      </span>
+                    ))}
+                  </div>
+                  <ArrowUpRight className="w-5 h-5 shrink-0 text-si-text-dim transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:text-[#2B5C9E]" />
+                </div>
+              </button>
+            </li>
           ))}
-        </div>
+        </ul>
       </div>
     </section>
   );

@@ -15,7 +15,7 @@ export const App: React.FC = () => {
   const [selectedProject, setSelectedProject] = useState<SystemProject | null>(null);
 
   return (
-    <div className="min-h-screen bg-[#f8fafc] text-si-text flex flex-col selection:bg-[#2B5C9E]/15 selection:text-[#2B5C9E]">
+    <div className="min-h-screen bg-si-bg text-si-text flex flex-col selection:bg-[#2B5C9E]/15 selection:text-[#2B5C9E]">
       <Header />
       <main className="flex-1">
         <HeroSection />

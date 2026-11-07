@@ -26,7 +26,7 @@ export const Header: React.FC = () => {
           <div className="flex flex-col">
             <div className="flex items-center gap-1.5">
               <span className="font-bold text-base tracking-tight text-[#2B5C9E]">SATU</span>
-              <span className="font-bold text-base tracking-tight text-[#6C3483]">INTI</span>
+              <span className="font-bold text-base tracking-tight text-si-text">INTI</span>
             </div>
             <span className="text-[11px] text-si-text-muted leading-none">{profile.name}</span>
           </div>

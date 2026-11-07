@@ -17,13 +17,12 @@ interface ServicesProps {
 
 export const Services: React.FC<ServicesProps> = ({ onOpen }) => {
   return (
-    <section id="services" className="py-16 md:py-20 border-b border-si-border bg-si-surface">
+    <section id="services" className="py-20 md:py-28 bg-si-bg">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
         <SectionHeading
           eyebrow="Services"
           title="What I can do for you"
           description="Four kinds of engagements, each backed by work on this page. Not sure which fits? Describe the problem and I will tell you honestly whether I am the right person."
-          accent="purple"
         />
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -34,7 +33,7 @@ export const Services: React.FC<ServicesProps> = ({ onOpen }) => {
             return (
               <div
                 key={service.id}
-                className="flex flex-col rounded-si-lg border border-si-border bg-si-surface p-6 space-y-5 hover:border-[#2B5C9E]/40 hover:shadow-md transition-all"
+                className="flex flex-col border-t-2 border-si-text pt-6 space-y-5"
               >
                 <div className="flex items-start justify-between gap-4">
                   <div className="flex items-center gap-3">
@@ -83,7 +82,7 @@ export const Services: React.FC<ServicesProps> = ({ onOpen }) => {
                         key={p.id}
                         type="button"
                         onClick={() => onOpen(p)}
-                        className="px-2 py-0.5 rounded bg-si-surface-2 border border-si-border text-si-text-muted hover:text-[#2B5C9E] hover:border-[#2B5C9E]/40 transition-colors"
+                        className="px-2 py-0.5 rounded bg-si-surface text-si-text-muted border border-si-border hover:text-[#2B5C9E] hover:border-[#2B5C9E]/40 transition-colors"
                       >
                         {p.name}
                       </button>

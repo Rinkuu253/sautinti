@@ -4,7 +4,7 @@ import { SectionHeading } from './SectionHeading';
 
 export const Process: React.FC = () => {
   return (
-    <section id="process" className="py-16 md:py-20 border-b border-si-border bg-[#f8fafc]">
+    <section id="process" className="py-20 md:py-28 bg-si-surface border-y border-si-border">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
         <SectionHeading
           eyebrow="How I work"

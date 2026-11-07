@@ -1,118 +1,74 @@
 import React from 'react';
-import { Button, Badge } from '@satuinti/ui';
-import { ArrowRight, MapPin, Clock, Award } from 'lucide-react';
+import { ArrowRight, MapPin, Award } from 'lucide-react';
 import { profile } from '../data/profile';
-
-const initials = profile.name
-  .split(' ')
-  .map((part) => part[0])
-  .join('');
 
 export const HeroSection: React.FC = () => {
   return (
-    <section className="relative overflow-hidden py-14 md:py-20 border-b border-si-border bg-gradient-to-b from-si-surface via-[#f8fafc] to-[#f8fafc]">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
-          <div className="lg:col-span-8 space-y-6">
-            <Badge variant="primary" className="bg-[#2B5C9E]/10 text-[#2B5C9E] border-[#2B5C9E]/30 text-xs">
-              {profile.title} · Cloud, Integrations, Apps
-            </Badge>
+    <section className="relative bg-[#0b0f17] text-white overflow-hidden">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 pb-14 md:pt-24 md:pb-16">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-14 items-center">
+          <div className="lg:col-span-6 space-y-7">
+            <div className="inline-flex items-center gap-2 text-xs font-medium text-white/70">
+              <span className="w-2 h-2 rounded-full bg-emerald-400" />
+              {profile.availability} · {profile.timezone}
+            </div>
 
-            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-si-text tracking-tight leading-[1.15]">
-              I build and run the systems{' '}
-              <span className="text-[#2B5C9E] underline decoration-[#6C3483]/30 decoration-2 underline-offset-4">
-                small teams depend on.
-              </span>
+            <h1 className="text-4xl sm:text-5xl xl:text-6xl font-bold leading-[1.05]">
+              I build and run the systems <span className="text-[#7fb0ff]">small teams depend on.</span>
             </h1>
 
-            <p className="text-base sm:text-lg text-si-text-muted leading-relaxed max-w-2xl">{profile.subheadline}</p>
+            <p className="text-base sm:text-lg text-white/70 leading-relaxed max-w-xl">{profile.subheadline}</p>
 
-            <div className="flex flex-wrap items-center gap-3 pt-2">
-              <a href="#work">
-                <Button
-                  variant="primary"
-                  size="md"
-                  className="bg-[#2B5C9E] hover:bg-[#23508C] border-transparent"
-                  iconRight={<ArrowRight className="w-4 h-4" />}
-                >
-                  See my work
-                </Button>
+            <div className="flex flex-wrap items-center gap-3">
+              <a
+                href="#work"
+                className="inline-flex items-center gap-2 px-5 py-3 rounded-si bg-white text-[#0b0f17] text-sm font-semibold hover:bg-white/90 active:scale-[0.98] transition"
+              >
+                See my work <ArrowRight className="w-4 h-4" />
               </a>
-              <a href="#contact">
-                <Button variant="outline" size="md" className="border-si-border-2 hover:border-[#2B5C9E] hover:text-[#2B5C9E]">
-                  Start a project
-                </Button>
+              <a
+                href="#contact"
+                className="inline-flex items-center gap-2 px-5 py-3 rounded-si border border-white/25 text-sm font-semibold text-white hover:bg-white/10 active:scale-[0.98] transition"
+              >
+                Start a project
               </a>
+            </div>
+
+            <div className="flex flex-wrap items-center gap-x-5 gap-y-2 text-xs text-white/60 pt-1">
+              <span className="inline-flex items-center gap-1.5">
+                <MapPin className="w-3.5 h-3.5" />
+                {profile.location} · Remote
+              </span>
+              {profile.certifications.map((cert) => (
+                <span key={cert.name} className="inline-flex items-center gap-1.5">
+                  <Award className="w-3.5 h-3.5" />
+                  {cert.name}
+                </span>
+              ))}
             </div>
           </div>
 
-          <div className="lg:col-span-4">
-            <div className="rounded-si-xl border border-si-border-2 bg-si-surface shadow-sm p-6 space-y-4">
-              <div className="flex items-center gap-4">
-                {profile.photo ? (
-                  <img
-                    src={profile.photo}
-                    alt={profile.name}
-                    className="w-16 h-16 rounded-full object-cover border-2 border-[#2B5C9E]/20"
-                  />
-                ) : (
-                  <div className="w-16 h-16 rounded-full bg-gradient-to-br from-[#2B5C9E] to-[#6C3483] text-white flex items-center justify-center text-xl font-bold">
-                    {initials}
-                  </div>
-                )}
-                <div>
-                  <div className="font-bold text-si-text">{profile.name}</div>
-                  <div className="text-sm text-si-text-muted">{profile.title}</div>
-                </div>
-              </div>
-              <div className="space-y-2 text-sm text-si-text-muted">
-                <div className="flex items-center gap-2">
-                  <MapPin className="w-4 h-4 text-si-text-dim" />
-                  {profile.location} · {profile.timezone} · Remote
-                </div>
-                <div className="flex items-center gap-2">
-                  <Clock className="w-4 h-4 text-si-text-dim" />
-                  {profile.responseTime}
-                </div>
-              </div>
-              <Badge variant="success" dot={true} className="py-1 px-3">
-                {profile.availability}
-              </Badge>
-              <div className="pt-4 border-t border-si-border space-y-2">
-                <span className="text-xs font-bold text-si-text-muted uppercase tracking-wider">Certified</span>
-                <div className="flex flex-wrap gap-1.5">
-                  {profile.certifications.map((cert) => {
-                    const chip = (
-                      <span className="inline-flex items-center gap-1.5 px-2 py-1 rounded-si-sm border border-si-border bg-si-surface-2 text-xs font-medium text-si-text">
-                        <Award className="w-3.5 h-3.5 text-[#6C3483]" />
-                        {cert.name}
-                      </span>
-                    );
-                    return cert.url ? (
-                      <a key={cert.name} href={cert.url} target="_blank" rel="noreferrer" title={`Verify: ${cert.issuer}`}>
-                        {chip}
-                      </a>
-                    ) : (
-                      <span key={cert.name} title={cert.issuer}>
-                        {chip}
-                      </span>
-                    );
-                  })}
-                </div>
-              </div>
+          <div className="lg:col-span-6">
+            <div className="rounded-si-lg overflow-hidden border border-white/15 shadow-[0_30px_80px_-30px_rgba(0,0,0,0.8)]">
+              <img
+                src="/images/aposis.png"
+                alt="APOSIS sign-in screen with Google and Microsoft single sign-on"
+                className="w-full h-72 sm:h-96 object-cover object-top bg-white"
+              />
             </div>
           </div>
         </div>
 
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mt-12 pt-8 border-t border-si-border">
+        <dl className="grid grid-cols-2 lg:grid-cols-4 gap-x-6 gap-y-8 mt-14 pt-8 border-t border-white/15">
           {profile.proof.map((item) => (
             <div key={item.label} className="space-y-1">
-              <div className="text-2xl sm:text-3xl font-mono font-bold text-[#2B5C9E] tracking-tight">{item.value}</div>
-              <div className="text-sm font-semibold text-si-text">{item.label}</div>
-              <p className="text-xs text-si-text-muted leading-snug">{item.note}</p>
+              <dt className="sr-only">{item.label}</dt>
+              <dd className="text-2xl sm:text-3xl font-mono font-semibold text-white tracking-tight">{item.value}</dd>
+              <p className="text-sm font-semibold text-white/90">{item.label}</p>
+              <p className="text-xs text-white/60 leading-snug">{item.note}</p>
             </div>
           ))}
-        </div>
+        </dl>
       </div>
     </section>
   );

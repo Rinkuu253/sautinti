@@ -27,14 +27,13 @@ export const ContactSection: React.FC = () => {
   ].filter(Boolean) as { href: string; label: string; icon: React.ElementType }[];
 
   return (
-    <section id="contact" className="py-16 md:py-20 border-b border-si-border bg-[#f8fafc]">
+    <section id="contact" className="py-20 md:py-28 bg-si-surface border-t border-si-border">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
         <div className="lg:col-span-6 space-y-6">
           <SectionHeading
             eyebrow="Contact"
             title="Tell me about your project"
             description="A few sentences are enough: what you need, what you use today, your timeline, and a rough budget. I will reply with honest next steps, even if that means pointing you to someone else."
-            accent="purple"
           />
           <div className="flex items-center gap-2 text-sm text-si-text-muted">
             <Globe2 className="w-4 h-4 text-si-text-dim" />

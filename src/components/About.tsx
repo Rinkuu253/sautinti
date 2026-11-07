@@ -21,10 +21,10 @@ export const About: React.FC<AboutProps> = ({ onOpen }) => {
   const labProjects = projects.filter((p) => p.tier === 'lab');
 
   return (
-    <section id="about" className="py-16 md:py-20 border-b border-si-border bg-si-surface">
+    <section id="about" className="py-20 md:py-28 bg-si-bg">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-12 gap-10">
         <div className="lg:col-span-7 space-y-6">
-          <SectionHeading eyebrow="About" title="Operations by day, building by night" accent="purple" />
+          <SectionHeading eyebrow="About" title="Operations by day, building by night" />
           <div className="space-y-4 text-base text-si-text-muted leading-relaxed">
             {profile.bio.map((paragraph) => (
               <p key={paragraph.slice(0, 24)}>{paragraph}</p>
@@ -33,7 +33,7 @@ export const About: React.FC<AboutProps> = ({ onOpen }) => {
         </div>
 
         <div className="lg:col-span-5 space-y-6">
-          <div className="rounded-si-lg border border-si-border-2 bg-gradient-to-br from-[#2B5C9E]/5 to-[#6C3483]/5 p-6 space-y-4">
+          <div className="rounded-si-lg border border-si-border-2 bg-si-bg p-6 space-y-4">
             <h3 className="text-sm font-bold text-si-text">My own platform</h3>
             <p className="text-sm text-si-text-muted">
               Self-hosted and maintained by me. It is where client prototypes run before they move to the cloud.
