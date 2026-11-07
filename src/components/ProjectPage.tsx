@@ -29,29 +29,29 @@ export const ProjectPage: React.FC<ProjectPageProps> = ({ project }) => {
 
   return (
     <article className="bg-si-bg">
-      <header className="bg-[#0b0f17] text-white">
+      <header className="bg-[#2B5C9E]/[0.07] text-si-text border-b border-si-border">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 pb-14 md:pb-20">
           <a
             href="/#work"
-            className="inline-flex items-center gap-1.5 text-sm text-white/70 hover:text-white transition-colors"
+            className="inline-flex items-center gap-1.5 text-sm text-si-text-muted hover:text-[#2B5C9E] transition-colors"
           >
             <ArrowLeft className="w-4 h-4" /> All projects
           </a>
 
           <div className="mt-10 space-y-5">
-            <p className="text-xs font-semibold uppercase tracking-[0.14em] text-[#7fb0ff]">
+            <p className="text-xs font-semibold uppercase tracking-[0.14em] text-[#6C3483]">
               {project.role} · {project.status}
             </p>
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-[1.05] max-w-3xl">{project.name}</h1>
-            <p className="text-lg sm:text-xl text-white/75 leading-relaxed max-w-2xl">{project.outcome}</p>
+            <p className="text-lg sm:text-xl text-si-text-muted leading-relaxed max-w-2xl">{project.outcome}</p>
           </div>
 
           {project.metrics && project.metrics.length > 0 && (
-            <dl className="mt-10 pt-6 border-t border-white/15 grid grid-cols-2 gap-6 max-w-xl">
+            <dl className="mt-10 pt-6 border-t border-si-border-2 grid grid-cols-2 gap-6 max-w-xl">
               {project.metrics.map((m) => (
                 <div key={m.label} className="space-y-1">
-                  <dd className="text-xl sm:text-2xl font-mono font-semibold">{m.value}</dd>
-                  <dt className="text-xs text-white/60">{m.label}</dt>
+                  <dd className="text-xl sm:text-2xl font-mono font-semibold text-[#2B5C9E]">{m.value}</dd>
+                  <dt className="text-xs text-si-text-muted">{m.label}</dt>
                 </div>
               ))}
             </dl>
@@ -109,7 +109,12 @@ export const ProjectPage: React.FC<ProjectPageProps> = ({ project }) => {
                     key={src}
                     className="zoom-frame rounded-si-lg border border-si-border-2 bg-si-surface shadow-[0_18px_40px_-24px_rgba(13,17,23,0.35)]"
                   >
-                    <img src={src} alt={`${project.name} screen`} loading="lazy" className="w-full h-auto" />
+                    <img
+                      src={src}
+                      alt={`${project.name} screen`}
+                      loading="lazy"
+                      className="w-full aspect-[16/10] object-cover object-left-top bg-white"
+                    />
                   </div>
                 ))}
               </div>
@@ -150,7 +155,7 @@ export const ProjectPage: React.FC<ProjectPageProps> = ({ project }) => {
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-12 grid grid-cols-1 md:grid-cols-2 gap-8">
           <a
             href="/#contact"
-            className="group flex items-center justify-between gap-4 p-6 rounded-si-lg bg-[#0b0f17] text-white hover:bg-[#151b27] transition-colors"
+            className="group flex items-center justify-between gap-4 p-6 rounded-si-lg bg-[#2B5C9E] text-white hover:bg-[#23508C] transition-colors"
           >
             <span className="text-lg font-semibold">Need something similar?</span>
             <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
