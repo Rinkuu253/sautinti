@@ -1,6 +1,7 @@
 import React from 'react';
 import { ArrowRight, MapPin, Award } from 'lucide-react';
 import { profile } from '../data/profile';
+import { HeroMark } from './HeroMark';
 
 export const HeroSection: React.FC = () => {
   return (
@@ -49,13 +50,7 @@ export const HeroSection: React.FC = () => {
           </div>
 
           <div className="hidden lg:block lg:col-span-6">
-            <div className="rounded-si-lg overflow-hidden border border-white/15 shadow-[0_30px_80px_-30px_rgba(0,0,0,0.8)]">
-              <img
-                src="/images/aposis.png"
-                alt="APOSIS sign-in screen with Google and Microsoft single sign-on"
-                className="w-full h-64 lg:h-72 xl:h-96 object-cover object-top bg-white"
-              />
-            </div>
+            <HeroMark />
           </div>
         </div>
 
