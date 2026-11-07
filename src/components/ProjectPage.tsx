@@ -100,6 +100,22 @@ export const ProjectPage: React.FC<ProjectPageProps> = ({ project }) => {
             </ol>
           </Block>
 
+          {project.gallery && project.gallery.length > 0 && (
+            <section className="py-10 border-t border-si-border-2 space-y-6">
+              <h2 className="text-xs font-semibold uppercase tracking-[0.14em] text-[#2B5C9E]">In the app</h2>
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                {project.gallery.map((src) => (
+                  <div
+                    key={src}
+                    className="zoom-frame rounded-si-lg border border-si-border-2 bg-si-surface shadow-[0_18px_40px_-24px_rgba(13,17,23,0.35)]"
+                  >
+                    <img src={src} alt={`${project.name} screen`} loading="lazy" className="w-full h-auto" />
+                  </div>
+                ))}
+              </div>
+            </section>
+          )}
+
           <Block label="Stack">
             <div className="flex flex-wrap gap-2">
               {project.techStack.map((tech) => (

@@ -25,6 +25,8 @@ export interface SystemProject {
   techStack: string[];
   status: 'Production' | 'In daily use' | 'Internal tool' | 'Personal project';
   imageUrl?: string;
+  /** More screenshots, shown on the project page below the main visual. */
+  gallery?: string[];
   /** Drawn when there is no screenshot yet. */
   sketch?: SketchLayer[];
   metrics?: { label: string; value: string }[];
@@ -156,6 +158,8 @@ export const projects: SystemProject[] = [
     ],
     techStack: ['Next.js 15', 'React 19', 'Tailwind CSS v4', 'Bun', 'Elysia', 'Drizzle ORM', 'PostgreSQL 16', 'S3', 'Docker Compose'],
     status: 'Internal tool',
+    imageUrl: '/images/jejak-dashboard.png',
+    gallery: ['/images/jejak-asset-history.png', '/images/jejak-documents.png'],
     sketch: [
       { label: 'Clients', items: ['IT staff', 'Technicians', 'QR scan on phone'] },
       { label: 'Services', items: ['Next.js web app', 'Private Elysia API', 'PDF generation'] },
