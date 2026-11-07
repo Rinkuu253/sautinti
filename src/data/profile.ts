@@ -54,7 +54,7 @@ export const profile: ProfileData = {
   proof: [
     { value: '1,000+', label: 'registered users', note: 'on Qompeten, the exam platform I lead' },
     { value: 'In labs', label: 'daily clinical use', note: 'Amarylis reads results straight from analyzers' },
-    { value: 'Up to 30%', label: 'AWS bill reduced', note: 'by right-sizing, without losing availability' },
+    { value: 'AWS', label: 'cost optimization', note: 'right-sized production, without losing availability' },
     { value: 'IT Ops', label: 'day job', note: 'SOPs, AWS operations, and support' },
   ],
   certifications: [
