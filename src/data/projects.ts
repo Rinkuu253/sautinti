@@ -131,6 +131,40 @@ export const projects: SystemProject[] = [
     ],
   },
   {
+    id: 'jejak-asset-manager',
+    name: 'Jejak: IT Asset Manager',
+    role: 'Product Owner & Full-Stack Engineer (AI-assisted)',
+    category: 'Apps',
+    tier: 'more',
+    outcome: 'One register for every IT device across business units, with a history that can never be rewritten.',
+    summary:
+      'An internal IT asset register that keeps the full life of each device: who held it, what changed, what was serviced, and which documents back it up.',
+    problem:
+      'Asset records lived in scattered spreadsheets, so audits and handovers relied on data anyone could edit without a trace.',
+    solution:
+      'A multi-unit web app where every change is an appended event, with QR labels, handover documents, preventive maintenance, and physical audits in one place.',
+    challenge:
+      'Trust and data safety. Units are isolated twice, in the API and by PostgreSQL row-level security, and asset history rejects UPDATE and DELETE through triggers and column privileges. Mistakes are fixed with correction events.',
+    architectureDetails: [
+      'Next.js 15 web app talking to a private Bun and Elysia API; only the web service has a public domain.',
+      'Row-level security per unit, with each request running in one transaction that sets the unit and user.',
+      'Append-only asset events and immutable knowledge-base versions.',
+      'QR label sheets, in-browser camera scanning, and server-generated PDF handover documents and maintenance reports.',
+      'Self-migrating Docker Compose deploy that seeds roles and the first admin.',
+    ],
+    techStack: ['Next.js 15', 'React 19', 'Tailwind CSS v4', 'Bun', 'Elysia', 'Drizzle ORM', 'PostgreSQL 16', 'S3', 'Docker Compose'],
+    status: 'Internal tool',
+    sketch: [
+      { label: 'Clients', items: ['IT staff', 'Technicians', 'QR scan on phone'] },
+      { label: 'Services', items: ['Next.js web app', 'Private Elysia API', 'PDF generation'] },
+      { label: 'Data', items: ['PostgreSQL + RLS', 'S3 files', 'Append-only history'] },
+    ],
+    metrics: [
+      { label: 'TypeScript', value: '~17,000 lines' },
+      { label: 'Database tables', value: '29' },
+    ],
+  },
+  {
     id: 'pos-kds',
     name: 'Offline-First POS & Kitchen Display',
     role: 'Full-Stack Engineer',
